@@ -24,7 +24,7 @@ public class StudentManagement{
                     deleteStudentById(input, students);
                     break;
                 case 4:
-
+                    calculateStudentsAverageScore(input, students);
                     break;
                 case 7:
                     System.out.println("Good bye.");
@@ -125,7 +125,9 @@ public class StudentManagement{
         List<Student> studentList = new ArrayList<>(students.values());
         int index = -1;
         for(int i = 0; i < studentList.size(); i++){
-//            if(studentList.get(i).getAverageScore() < ){}
+            if(studentList.get(i).getAverageScore() < max){
+
+            }
         }
     }
 }
