@@ -123,7 +123,7 @@ public class StudentManagement{
             return;
         }
         List<Student> studentList = new ArrayList<>(students.values());
-        int index = -1
+        int index = -1;
         for(int i = 0; i < studentList.size(); i++){
 //            if(studentList.get(i).getAverageScore() < ){}
         }
