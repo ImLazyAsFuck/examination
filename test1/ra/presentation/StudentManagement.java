@@ -79,8 +79,9 @@ public class StudentManagement{
         System.out.print("Enter student ID: ");
         String studentId = input.nextLine();
         int found = -1;
-        for(int i = 0; i < students.size(); i++){
-            if(studentId.equals(students.get(i).getStudentId())){
+        List<Student> studentList = new ArrayList<>(students.values());
+        for(int i = 0; i < studentList.size(); i++){
+            if(studentId.equals(studentList.get(i).getStudentId())){
                 found = i;
             }
         }
@@ -121,8 +122,10 @@ public class StudentManagement{
             System.out.println("students list is empty!");
             return;
         }
-        int found = -1;
         List<Student> studentList = new ArrayList<>(students.values());
-        
+        int index = -1
+        for(int i = 0; i < studentList.size(); i++){
+//            if(studentList.get(i).getAverageScore() < ){}
+        }
     }
 }
