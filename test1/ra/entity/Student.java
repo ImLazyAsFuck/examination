@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Student{
     private String studentId;
     private String studentName;
-    private String studentAge;
+    private int studentAge;
     private float averageScore;
 
-    public Student(String studentId, String studentName, String studentAge, float averageScore){
+    public Student(String studentId, String studentName, int studentAge, float averageScore){
         this.studentId = studentId;
         this.studentName = studentName;
         this.studentAge = studentAge;
@@ -34,11 +34,11 @@ public class Student{
         this.studentName = studentName;
     }
 
-    public String getStudentAge(){
+    public int getStudentAge(){
         return studentAge;
     }
 
-    public void setStudentAge(String studentAge){
+    public void setStudentAge(int studentAge){
         this.studentAge = studentAge;
     }
 
@@ -55,15 +55,15 @@ public class Student{
         this.studentName = scanner.nextLine();
 
         System.out.print("Enter student age: ");
-        this.studentAge = scanner.nextLine();
+        this.studentAge = Integer.parseInt( scanner.nextLine());
 
         float averageScore;
         while(true){
-        System.out.print("Enter average score: ");
-            System.out.print("Enter student avarage score: ");
+            System.out.print("Enter average score: ");
             averageScore = Float.parseFloat(scanner.nextLine());
-            if(averageScore >= 0 && averageScore <= 10){
+            if(averageScore >= 0f || averageScore <= 10f){
                 this.averageScore = averageScore;
+                break;
             }
             System.out.println("Average score must be between 0 and 10");
         }

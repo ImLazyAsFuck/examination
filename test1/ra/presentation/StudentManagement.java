@@ -24,7 +24,13 @@ public class StudentManagement{
                     deleteStudentById(input, students);
                     break;
                 case 4:
-                    calculateStudentsAverageScore(input, students);
+                    calculateStudentsAverageScore(students);
+                    break;
+                case 5:
+                    findHighestAverageScoreStudent(students);
+                    break;
+                case 6:
+                    findLowestAgeStudent(students);
                     break;
                 case 7:
                     System.out.println("Good bye.");
@@ -65,6 +71,10 @@ public class StudentManagement{
     }
 
     public static void displayStudents(Map<String, Student> students){
+        if(students.isEmpty()){
+            System.out.println("No students found.");
+            return;
+        }
         for(Student student : students.values()){
             System.out.println(student);
             System.out.println("--------------------");
@@ -104,7 +114,7 @@ public class StudentManagement{
         System.out.println("7. Exit");
     }
 
-    public static void calculateStudentsAverageScore(Scanner input, Map<String, Student> students){
+    public static void calculateStudentsAverageScore(Map<String, Student> students){
         if(students.isEmpty()){
             System.out.println("students list is empty!");
             return;
@@ -117,17 +127,41 @@ public class StudentManagement{
         System.out.println("Total Average Score: " + totalAvarageScore);
     }
 
-    public static void FindHighestAverageScoreStudent(Scanner input, Map<String, Student> students){
+    public static void findHighestAverageScoreStudent(Map<String, Student> students){
         if(students.isEmpty()){
             System.out.println("students list is empty!");
             return;
         }
         List<Student> studentList = new ArrayList<>(students.values());
         int index = -1;
+        float max = studentList.getFirst().getAverageScore();
         for(int i = 0; i < studentList.size(); i++){
             if(studentList.get(i).getAverageScore() < max){
-
+                max = studentList.get(i).getAverageScore();
+                index = i;
             }
         }
+        System.out.println("Highest Average Score: " + max + "from student id: " + studentList.get(index).getStudentId());
+    }
+
+    public static void findLowestAgeStudent(Map<String, Student> students){
+        if(students.isEmpty()){
+            System.out.println("students list is empty!");
+            return;
+        }
+        List<Student> studentList = new ArrayList<>(students.values());
+        int index = -1;
+        int minAge = studentList.getFirst().getStudentAge();
+        for(int i = 0; i < studentList.size(); i++){
+            if(studentList.get(i).getStudentAge() < minAge){
+                minAge = studentList.get(i).getStudentAge();
+                index = i;
+            }
+        }
+        if(index == -1){
+            System.out.println("student not found!");
+            return;
+        }
+        System.out.println("Lowest Age: " + studentList.get(index).getStudentAge() + "from student id: " + studentList.get(index).getStudentId());
     }
 }
