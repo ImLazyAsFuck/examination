@@ -1,6 +1,7 @@
 package pressentation;
 
 import bussiness.CustomerBusiness;
+import bussiness.OrderBusiness;
 import entity.Customer;
 import entity.Order;
 
@@ -67,6 +68,7 @@ public class ShopManagement{
 
     public static void orderManagement(Scanner input){
         int choice;
+        OrderBusiness orderBusiness = new OrderBusiness();
         while(true){
             System.out.println("--------------- Order Management ---------------");
             System.out.println("1. Order List");
@@ -80,11 +82,13 @@ public class ShopManagement{
             choice = Integer.parseInt(input.nextLine());
             switch(choice){
                 case 1:
-
+                    orderBusiness.displayOrders();
                     break;
                 case 2:
+                    orderBusiness.addOrder(input);
                     break;
                 case 3:
+//                    orderBusiness.getOrderDelivied()
                     break;
                 case 4:
                     break;
